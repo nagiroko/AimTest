@@ -27,11 +27,16 @@ public class Player : MonoBehaviour
                 {
 
                     score += 1;
-                    Debug.Log(score);
                     Destroy(GameObject.FindGameObjectWithTag("Circle"));
                     spawns.spawn();
                 }
             }
         }
+        if(spawns.currentTime <= 0)
+        {
+            Debug.Log("You hit " + score.ToString() + " circles");
+        }
+    
+    
     }
 }

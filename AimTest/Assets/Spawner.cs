@@ -7,6 +7,7 @@ public class Spawner : MonoBehaviour
     float x = 0f;
     float y = 0f;
     public GameObject circle;
+    public float currentTime = 10f;
     void Start()
     {
         spawn();
@@ -15,7 +16,11 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        currentTime -= 1 * Time.deltaTime;
+        if (currentTime <= 0)
+        {
+            Destroy(GameObject.FindGameObjectWithTag("Circle"));
+        }
     }
     public void spawn()
     {
